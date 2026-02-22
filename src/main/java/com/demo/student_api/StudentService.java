@@ -23,6 +23,16 @@ public class StudentService {
         students.add(student);
         return student;
     }
+    public Student updateStudent(int id, Student updatedStudent) {
+        for (Student student : students) {
+            if (student.getId() == id) {
+                student.setName(updatedStudent.getName());
+                student.setEmail(updatedStudent.getEmail());
+                return student;
+            }
+        }
+        return null;
+    }
 
     public boolean deleteStudent(int id) {
         return students.removeIf(s -> s.getId() == id);
